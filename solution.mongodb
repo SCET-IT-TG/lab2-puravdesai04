@@ -24,7 +24,7 @@ db.employees.insertMany([
   {
     name: "Marshall",
     department: "Marketing",
-    salary: 5000,
+    salary: 25000,
     age: 30
   },
   {
@@ -32,6 +32,12 @@ db.employees.insertMany([
     department: "Marketing",
     salary: 35000,
     age: 33
+  },
+  {
+    name: "Rahul",   
+    department: "Finance",
+    salary: 60000,
+    age: 32
   }
 ]);
 
@@ -40,7 +46,7 @@ db.employees.insertMany([
 
 db.employees.find({ department: "IT" });
 
-db.employees.find({ name: "Lily" });
+db.employees.find({ name: "Rahul" });
 
 
 /*---Exercise 3: Formatting & Distinct---*/
