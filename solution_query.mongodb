@@ -1,61 +1,79 @@
-/*---Exercise 1: Data Setup---*/
+*---Exercise 1: Data Setup---*/
 
-use companyDB
+db = db.getSiblingDB("companyDB");
 
 db.employees.insertMany([
   {
-    name: "Ted",
+    name: "Marvel",
     department: "IT",
     salary: 100000,
     age: 25
   },
   {
-    name: "Robin",
+    name: "X",
     department: "HR",
     salary: 50000,
     age: 24
   },
   {
-    name: "Barney",
+    name: "Y",
     department: "Sales",
     salary: 45000,
     age: 25
   },
   {
-    name: "Marshall",
+    name: "Z",
     department: "Marketing",
-    salary: 25000,
+    salary: 5000,
     age: 30
   },
   {
-    name: "Lily",
+    name: "Rahul",
     department: "Marketing",
     salary: 35000,
     age: 33
-  },
-  {
-    name: "Rahul",   
-    department: "Finance",
-    salary: 60000,
-    age: 32
   }
 ]);
 
+
 /*---Exercise 2: Simple Find Queries---*/
+
 db.employees.find({ department: "IT" });
+
 db.employees.find({ name: "Rahul" });
 
+
 /*---Exercise 3: Formatting & Distinct---*/
+
 db.employees.find().pretty();
+
 db.employees.distinct("department");
 
+
 /*---Exercise 4: Salary Analysis ($gt, $lt)---*/
-db.employees.find({ salary: { $gt: 50000 } });
-db.employees.find({ salary: { $lt: 30000 } });
+
+db.employees.find({
+  salary: { $gt: 50000 }
+});
+
+db.employees.find({
+  salary: { $lt: 30000 }
+});
+
 
 /*---Exercise 5: Age Filtering ($gte, $lte)---*/
-db.employees.find({ age: { $gte: 30 } });
-db.employees.find({ age: { $lte: 25 } });
+
+db.employees.find({
+  age: { $gte: 30 }
+});
+
+db.employees.find({
+  age: { $lte: 25 }
+});
+
 
 /*---Exercise 6: Range Queries---*/
-db.employees.find({ salary: { $gte: 40000, $lte: 80000 } });
+
+db.employees.find({
+  salary: { $gte: 40000, $lte: 80000 }
+});
